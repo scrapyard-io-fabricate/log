@@ -355,6 +355,10 @@ class LogManager implements LoggerInterface
             }
         }
 
+        $this->sharedContext = is_null($keys)
+            ? []
+            : array_diff_key($this->sharedContext, array_flip($keys));
+
         return $this;
     }
 
